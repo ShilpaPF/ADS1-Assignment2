@@ -2,7 +2,7 @@
 """
 Spyder Editor
 
-This is a temporary script file.
+@author: Shilpa
 """
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -11,23 +11,23 @@ import numpy as np
 #Readind csv file to extract data from Population,Total
 def population():
     
-    population_data = pd.read_csv("C:\\Population,Total.csv")
+    population_data = pd.read_csv("C:/Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/Population,Total.csv")
 
-#Making Transpose
+    #Making Transpose
 
     population_data_transpose = population_data.transpose()
 
-#Printing the transposed data
+    #Printing the transposed data
 
     print(population_data_transpose)
     print(population_data)
 
 
 
-#Ploting Figure
+    #Ploting Figure
     plt.figure()
 
-#Prints country names with population in the year of 2010,2011 and 2012
+    #Prints country names with population in the year of 2010,2011 and 2012
 
     data=population_data[['Country Name','2010','2011','2012']]
     p = data.iloc[1:9]
@@ -40,27 +40,30 @@ def population():
     plt.bar(c+0.3, p['2012'], width=0.2, label="2012")
     plt.xticks(c,a,rotation=90)
 
-#Set The Title
+    #Set The Title
     plt.title("Population Total")
     plt.legend()
     plt.xlabel("Country")
     plt.ylabel("Population")
 
-#Save The Figure
+    #Save The Figure
     plt.savefig("Population.png",bbox_inches="tight")
     plt.show()
+    
+#Defining electricity using function
 
 def electricity():
     
-#Reading csv file to extract data from Electric Power Consumption
-    elec_data = pd.read_csv("C:\\Electric Power Consumption.csv")
+    #Reading csv file to extract data from Electric Power Consumption
+    
+    elec_data = pd.read_csv("C://Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/Electric Power Consumption.csv")
     elec_data_Transpose = elec_data.transpose()
     print(elec_data_Transpose)
     print(elec_data)
 
-#Plot The Figure
+    #Plot The Figure
     plt.figure()
-    """Prints Countries Based on the Electric Power Consumption in the Year of 2010,2011 and 2012"""
+    """Displays Countries Based on the Electric Power Consumption in the Year of 2010,2011 and 2012"""
 
     data1=elec_data[['Country Name','2010','2011','2012']]
     print(data1.iloc[1:9])
@@ -74,41 +77,62 @@ def electricity():
     plt.bar(c+0.3, p['2012'], width=0.2, label="2012")
     plt.xticks(c,a,rotation=90)
 
-   #Setting the Title
+    #Setting the Title
     plt.title("Electric Power Consumption")
     plt.legend()
     plt.xlabel("Country")
     plt.ylabel("Electric Power Consumption")
 
-#Saving Figure
+    #Saving Figure
     plt.savefig("Electric Power Consumption.png",bbox_inches="tight")
     plt.show()
 
 population()
 electricity()
 
+#Defining line graph for CO2 Emissions using function
+
 def line():
+
+    #Reading csv file CO2 Emissions
     
-    population_data1 = pd.read_csv("C:\\Population,Total.csv") 
-   # Year = [2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014]
-    #Population = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-  
-    plt.plot()#(Year, Population, color='red', marker='o')
-    plt.title('Population vs Year', fontsize=14)
-    plt.xlabel('Year', fontsize=14)
-    plt.ylabel('Population', fontsize=14)
-    plt.show()           
-
-
+    df = pd.read_csv("C://Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/CO2 Emissions.csv")
+    df_transpose=df.transpose()
+    print(df)
+    #Plotting line graph based on the CO2 Emission rates for the countries in the year of 2011,2012,2013 and 2014
+    
+    ax = df.plot(x='Country Name', y=['2011','2012','2013','2014'])
+    plt.title("CO2 Emissions (kt)")
+    ax.set_ylabel("Emission Rate")
+    plt.xticks(rotation=90)
+    plt.legend()
+    plt.savefig("CO2line.png",bbox_inches="tight")
+    plt.show()
+    
+#Calling the function
 
 line()
 
+#Defining Line graph  for Cereal Yield using function
 
+def line1():
+    #Reading csv file to extract data from the file Cereal Yield
+    
+    df = pd.read_csv("C://Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/Cereal Yield (kg per hectare).csv")
+    df_transpose=df.transpose()
+    print(df)
+    #Plotting line graph based on the Cereal Yield for the countries in the year of 2011,2012,2013 and 2014
+    ax = df.plot(x='Country Name', y=['2011','2012','2013','2014'])
+    ax.set_ylabel("kg per hectare")
+    plt.title("Cereal Yield (kg per hectare)")
+    plt.xticks(rotation=90)
+    plt.legend()
+    plt.savefig("line.png",bbox_inches="tight")
+    plt.show()
 
+#Calling the function
 
-
-
-
+line1()
 
 
 
