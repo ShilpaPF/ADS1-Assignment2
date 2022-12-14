@@ -99,9 +99,9 @@ def line():
     df = pd.read_csv("C://Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/CO2 Emissions.csv")
     df_transpose=df.transpose()
     print(df)
-    #Plotting line graph based on the CO2 Emission rates for the countries in the year of 2011,2012,2013 and 2014
+    #Plotting line graph based on the CO2 Emission rates for the countries in the year of 2010,2011 and 2012
     
-    ax = df.plot(x='Country Name', y=['2011','2012','2013','2014'])
+    ax = df.plot(x='Country Name', y=['2010','2011','2012'])
     plt.title("CO2 Emissions (kt)")
     ax.set_ylabel("Emission Rate")
     plt.xticks(rotation=90)
@@ -121,8 +121,8 @@ def line1():
     df = pd.read_csv("C://Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/Cereal Yield (kg per hectare).csv")
     df_transpose=df.transpose()
     print(df)
-    #Plotting line graph based on the Cereal Yield for the countries in the year of 2011,2012,2013 and 2014
-    ax = df.plot(x='Country Name', y=['2011','2012','2013','2014'])
+    #Plotting line graph based on the Cereal Yield for the countries in the year of 2010,2011 and 2012
+    ax = df.plot(x='Country Name', y=['2010','2011','2012'])
     ax.set_ylabel("kg per hectare")
     plt.title("Cereal Yield (kg per hectare)")
     plt.xticks(rotation=90)
