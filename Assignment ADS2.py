@@ -178,22 +178,22 @@ def read_files():
 
 # call the function
 read_files()
-#Reading the datasets
+# Reading the datasets
 pop_total = pd.read_csv(
     "C:/Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/Population,Total.csv")
 co2_emissions = pd.read_csv(
     "C://Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/CO2 Emissions.csv")
-#Calculating mean, median and mode
+# Calculating mean, median and mode
 
-mean_population_total=pop_total.mean()
-median_population_total=pop_total.median()
-mode_population_total=pop_total.mode()
+mean_population_total = pop_total.mean()
+median_population_total = pop_total.median()
+mode_population_total = pop_total.mode()
 
-mean_co2_emissions=co2_emissions.mean()
-median_co2_emissions=co2_emissions.median()
-mode_co2_emissions=co2_emissions.mode()
+mean_co2_emissions = co2_emissions.mean()
+median_co2_emissions = co2_emissions.median()
+mode_co2_emissions = co2_emissions.mode()
 
-#Printing the results
+# Printing the results
 print("Mean of population total:")
 print(mean_population_total)
 print("Median of population total:")
@@ -207,23 +207,26 @@ print(median_co2_emissions)
 print("Mode of co2 emissions:")
 print(mode_co2_emissions)
 
-#import population total data set
-pt = pd.read_csv("C:/Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/Population,Total.csv")
+# import population total data set
+pt = pd.read_csv(
+    "C:/Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/Population,Total.csv")
 
-#import electric power consumption data set
-epc = pd.read_csv("C://Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/Electric Power Consumption.csv")
+# import electric power consumption data set
+epc = pd.read_csv(
+    "C://Users/rejot/OneDrive - University of Hertfordshire/Statistics and trends/Electric Power Consumption.csv")
 
-#merge the two datasets into one
-data_merged = pd.merge(pt, epc, on=['Country Name', 'Country Code'], how='inner')
+# merge the two datasets into one
+data_merged = pd.merge(
+    pt, epc, on=['Country Name', 'Country Code'], how='inner')
 
-#calculate the average population for all countries
+# calculate the average population for all countries
 avg_pop = data_merged.iloc[:, 2:].mean(axis=1)
 
-#add the avg_pop column to the merged dataframe
+# add the avg_pop column to the merged dataframe
 data_merged['Avg Pop'] = avg_pop
 
-#sort the dataframe based on the avg_pop column
+# sort the dataframe based on the avg_pop column
 data_sorted = data_merged.sort_values(by='Avg Pop', ascending=False)
 
-#print the sorted dataframe
+# print the sorted dataframe
 print(data_sorted)
